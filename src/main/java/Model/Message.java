@@ -24,6 +24,7 @@ public class Message {
      * to store this number. We will assume that this number is provided by the front-end of this application.
      */
     public long time_posted_epoch;
+    public Object retrieveMessagebyMessageId;
     /**
      * A default, no-args constructor, as well as correctly formatted getters and setters, are needed for
      * Jackson Objectmapper to work.
