@@ -122,7 +122,7 @@ public class MessageDAO {
         Connection connection = ConnectionUtil.getConnection();
         Message message = new Message();
         try {
-            String sql = "update message set message_text = ? where message_id = ?; ";
+            String sql = "update message set message_text = ? where message_id = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             preparedStatement.setString(1, newMessage);

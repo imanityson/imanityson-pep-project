@@ -26,7 +26,7 @@ public class AccountDAO {
         }
 
         try {Connection connection = ConnectionUtil.getConnection();
-            String sql = "select * from account where username = ?";
+            String sql = "select * from account where username = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
@@ -53,10 +53,9 @@ public class AccountDAO {
         Account newAccount = new Account(); 
         
         try {
-            String sql = "insert into Account (account_id, username, password ) values (?,?,?);" ;
+            String sql = "insert into Account (username, password ) values (?,?);" ;
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            //preparedStatement.setInt(1, account.getAccount_id());
             preparedStatement.setString(2, username);
             preparedStatement.setString(3, password);
             preparedStatement.executeUpdate();
@@ -75,7 +74,6 @@ public class AccountDAO {
         }
         return newAccount;
     }
-    
     //TODO login into account
     public Account loginAccount(String username, String password){
         Connection connection = ConnectionUtil.getConnection();
